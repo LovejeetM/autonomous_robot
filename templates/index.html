@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Saver</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            margin: 0;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Allows positioning of the button */
+        }
+
+        .ascii-art {
+            color: blue;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+            white-space: pre;
+            line-height: 1; /* Reduce line spacing */
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 4px solid black; /* Black outline */
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .button-container {
+            position: absolute;
+            top: 35vh;
+            right: 80px;
+            text-align: center;
+        }
+
+        .black-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 40px;
+            }
+
+            input[type="text"] {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ascii-art {
+                font-size: 16px;
+            }
+
+            input[type="text"] {
+                font-size: 0.9rem;
+                max-width: 250px;
+            }
+
+            .button-container {
+                top: 50vh;
+                right: 20px;
+            }
+
+            .black-button {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ascii-art">
+<pre>
+  _______  _______ .___  ___.  __  .__   __.  __  
+ /  _____||   ____||   \/   | |  | |  \ |  | |  | 
+|  |  __  |  |__   |  \  /  | |  | |   \|  | |  | 
+|  | |_ | |   __|  |  |\/|  | |  | |  . `  | |  | 
+|  |__| | |  |____ |  |  |  | |  | |  |\   | |  | 
+ \______| |_______||__|  |__| |__| |__| \__| |__| 
+</pre>
+    </div>
+
+    <input type="text" id="textInput" placeholder="Enter text here">
+
+    <!-- Button Container with Label and Button -->
+    <div class="button-container">
+        <div style="color: black; font-size: 21px;">Plants</div>
+        <button class="black-button" onclick="window.location.href='/Plants'"></button>
+    </div>
+
+    <script>
+        document.getElementById('textInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+
+                const text = this.value;
+                const formData = new FormData();
+                formData.append('text', text);
+
+                fetch('/upload_text', {
+                    method: 'POST',
+                    body: formData
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Text uploaded successfully!');
+                        this.value = ''; // Clear the input field
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

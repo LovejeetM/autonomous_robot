@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Robot</title>
+    <style>
+        body {
+            margin: 20px;
+            background-color: antiquewhite;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 40px);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0px;
+        }
+        .markdown-content {
+            background-color: antiquewhite;
+            padding: 10px;
+            border-radius: 0px;
+            text-align: left;
+            font-family: 'Georgia', serif;
+            color: #000000;
+        }
+        .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+            color: #000000;
+            margin-top: 0;
+        }
+        .markdown-content p {
+            margin: 10px 0;
+        }
+        .markdown-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Plants Captured and Data</h1>
+    <div class="container">
+        {% for image, description in data.items() %}
+        <div class="item">
+            <img src="{{ url_for('uploaded_file', filename=image) }}" alt="{{ image }}">
+            <div class="markdown-content">{{ description | safe }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
