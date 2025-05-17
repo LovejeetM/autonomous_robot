@@ -23,8 +23,7 @@ The following hardware components are used:
 ## Software Requirements & Libraries
 
 This project relies on the following Python libraries.  It is highly recommended to use a virtual environment (e.g., `venv` or `conda`) to manage these dependencies.
-Use code with caution.
-Markdown
+
 Adafruit-Blinka==8.45.2
 adafruit-circuitpython-busdevice==5.2.9
 adafruit-circuitpython-connectionmanager==3.1.1
