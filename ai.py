@@ -104,7 +104,7 @@ captured_blocks = set()
 def GenA(prompt, imag):
     imag1 = Image.open(imag)
     model = genai.GenerativeModel(model_name="gemini-1.5-pro", generation_config={"response_mime_type": "application/json"})
-    genai.configure(api_key='AIzaSyBe90RcMBSmV-Wi2CN3-hb5dWmeoRplQAo')
+    genai.configure(api_key='enter api key')
     response = model.generate_content([prompt, imag1])
     chat = model.start_chat(history=[])
     matt= json.loads(response.text)
@@ -113,7 +113,7 @@ def GenA(prompt, imag):
 def GenF(prompt, imag):
     imag2 = Image.open(imag)
     model = genai.GenerativeModel(model_name="gemini-1.5-pro", generation_config={"response_mime_type": "application/json"})
-    genai.configure(api_key='AIzaSyCuBRBEdcxh50OtL2lrmIzNpCtigfg7xxM')
+    genai.configure(api_key='enter api key')
     response = model.generate_content([prompt, imag2])
     test= json.loads(response.text)
     return test
@@ -121,7 +121,7 @@ def GenF(prompt, imag):
 def GenM(prompt, imag):
     imag3 = Image.open(imag)
     model = genai.GenerativeModel(model_name="gemini-1.5-pro")
-    genai.configure(api_key='AIzaSyCuBRBEdcxh50OtL2lrmIzNpCtigfg7xxM')
+    genai.configure(api_key='enter api key')
     response = model.generate_content([prompt, imag3])
     markdown_text = md(response.text)
     corrected_markdown = re.sub(r'\\', '', markdown_text)
@@ -296,7 +296,6 @@ def main():
                 command = int(command)
 
             if command== 'view':
-                adjust('forward')
                 readings1 = run('view')
                 add_points(readings1)
                 red_blocks = draw(window, readings, width, height, object_x, object_y)

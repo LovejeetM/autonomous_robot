@@ -115,6 +115,7 @@ To install these dependencies, use pip:
 pip install -r requirements.txt
 Use code with caution.
 (You should create a requirements.txt file and paste the above list into it.)
+```
 
 Software Installation:
 
@@ -126,7 +127,7 @@ Clone this repository to your Raspberry Pi:
 
 git clone https://github.com/LovejeetM/autonomous_robot/
 
-Bash
+
 Install the required Python libraries (as described in the "requirements.txt" section).
 
 Configuration:
@@ -142,7 +143,7 @@ Start the Program: Run the main Python script:
 
 python ai.py 
 
-Bash
+
 Monitoring: The robot will begin autonomously exploring the garden, scanning the environment, and analyzing plants.
 
 Troubleshooting

@@ -15,7 +15,7 @@
             flex-direction: column;
             padding: 20px;
             text-align: center;
-            position: relative; /* Allows positioning of the button */
+            position: relative; 
         }
 
         .ascii-art {
@@ -23,14 +23,14 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 25px;
             white-space: pre;
-            line-height: 1; /* Reduce line spacing */
+            line-height: 1;
             margin-bottom: 20px;
         }
 
         input[type="text"] {
             padding: 10px;
             font-size: 1rem;
-            border: 4px solid black; /* Black outline */
+            border: 4px solid black; 
             max-width: 400px;
             width: 100%;
         }
@@ -98,7 +98,7 @@
 
     <input type="text" id="textInput" placeholder="Enter text here">
 
-    <!-- Button Container with Label and Button -->
+    
     <div class="button-container">
         <div style="color: black; font-size: 21px;">Plants</div>
         <button class="black-button" onclick="window.location.href='/Plants'"></button>
@@ -119,7 +119,7 @@
                 }).then(response => {
                     if (response.ok) {
                         alert('Text uploaded successfully!');
-                        this.value = ''; // Clear the input field
+                        this.value = '';
                     }
                 });
             }
